@@ -1062,9 +1062,29 @@
                     <div class="step-num">3</div>
                     <div class="step-body">
                       <div class="step-title">Tell Bob to install the mode</div>
-                      <div class="step-desc">Copy and paste this into Bob. It will read the file and add the mode to your <code>custom_modes.yaml</code>.</div>
+                      <div class="step-desc">Copy and paste this into Bob. It will read the file, fix the indentation, and write it to <code>.bob/custom_modes.yaml</code>.</div>
                       <div class="step-prompt">
-                        <pre>Read QisBob.yaml from my workspace and install it as a custom mode.</pre>
+                        <pre>Read QisBob.yaml from my workspace and install it as a custom Bob mode by writing it to `.bob/custom_modes.yaml`.
+
+The file needs to be wrapped under a `customModes:` key and the indentation fixed (strip 2 leading spaces from every line of the source, then re-indent each line under the list).
+
+Use the appropriate method for my platform:
+
+- **Windows (PowerShell):** Run `install-qisbob-mode.ps1` if it exists in the workspace, otherwise execute this inline:
+  ```powershell
+  $lines = Get-Content QisBob.yaml -Encoding UTF8
+  $fixed = $lines | ForEach-Object { if ($_ -match '^\s') { $_ -replace '^  ', '' } else { $_ } }
+  $out = @("customModes:") + ($fixed | ForEach-Object { "  $_" })
+  New-Item -ItemType Directory -Force -Path .bob | Out-Null
+  $out | Set-Content .bob/custom_modes.yaml -Encoding UTF8
+  ```
+
+- **macOS / Linux (bash):**
+  ```bash
+  mkdir -p .bob && printf 'customModes:\n' > .bob/custom_modes.yaml && sed 's/^  //' QisBob.yaml | sed 's/^/  /' >> .bob/custom_modes.yaml
+  ```
+
+After writing the file, confirm the mode is installed and tell me to switch to "QisBob Quantum Mentor" in the Bob mode picker.</pre>
                         <button class="copy-btn">Copy</button>
                       </div>
                     </div>
@@ -1152,9 +1172,29 @@
                     <div class="step-num">3</div>
                     <div class="step-body">
                       <div class="step-title">Tell Bob to install the mode</div>
-                      <div class="step-desc">Copy and paste this into Bob. It will read the file and add the mode to your <code>custom_modes.yaml</code>.</div>
+                      <div class="step-desc">Copy and paste this into Bob. It will read the file, fix the indentation, and write it to <code>.bob/custom_modes.yaml</code>.</div>
                       <div class="step-prompt">
-                        <pre>Read PyBob.yaml from my workspace and install it as a custom mode.</pre>
+                        <pre>Read PyBob.yaml from my workspace and install it as a custom Bob mode by writing it to `.bob/custom_modes.yaml`.
+
+The file needs to be wrapped under a `customModes:` key and the indentation fixed (strip 2 leading spaces from every line of the source, then re-indent each line under the list).
+
+Use the appropriate method for my platform:
+
+- **Windows (PowerShell):** Run `install-pybob-mode.ps1` if it exists in the workspace, otherwise execute this inline:
+  ```powershell
+  $lines = Get-Content PyBob.yaml -Encoding UTF8
+  $fixed = $lines | ForEach-Object { if ($_ -match '^\s') { $_ -replace '^  ', '' } else { $_ } }
+  $out = @("customModes:") + ($fixed | ForEach-Object { "  $_" })
+  New-Item -ItemType Directory -Force -Path .bob | Out-Null
+  $out | Set-Content .bob/custom_modes.yaml -Encoding UTF8
+  ```
+
+- **macOS / Linux (bash):**
+  ```bash
+  mkdir -p .bob && printf 'customModes:\n' > .bob/custom_modes.yaml && sed 's/^  //' PyBob.yaml | sed 's/^/  /' >> .bob/custom_modes.yaml
+  ```
+
+After writing the file, confirm the mode is installed and tell me to switch to "PyBob Python Mentor" in the Bob mode picker.</pre>
                         <button class="copy-btn">Copy</button>
                       </div>
                     </div>
@@ -1241,9 +1281,29 @@
                     <div class="step-num">3</div>
                     <div class="step-body">
                       <div class="step-title">Tell Bob to install the mode</div>
-                      <div class="step-desc">Copy and paste this into Bob. It will read the file and add the mode to your <code>custom_modes.yaml</code>.</div>
+                      <div class="step-desc">Copy and paste this into Bob. It will read the file, fix the indentation, and write it to <code>.bob/custom_modes.yaml</code>.</div>
                       <div class="step-prompt">
-                        <pre>Read SqlBob.yaml from my workspace and install it as a custom mode.</pre>
+                        <pre>Read SqlBob.yaml from my workspace and install it as a custom Bob mode by writing it to `.bob/custom_modes.yaml`.
+
+The file needs to be wrapped under a `customModes:` key and the indentation fixed (strip 2 leading spaces from every line of the source, then re-indent each line under the list).
+
+Use the appropriate method for my platform:
+
+- **Windows (PowerShell):** Run `install-sqlbob-mode.ps1` if it exists in the workspace, otherwise execute this inline:
+  ```powershell
+  $lines = Get-Content SqlBob.yaml -Encoding UTF8
+  $fixed = $lines | ForEach-Object { if ($_ -match '^\s') { $_ -replace '^  ', '' } else { $_ } }
+  $out = @("customModes:") + ($fixed | ForEach-Object { "  $_" })
+  New-Item -ItemType Directory -Force -Path .bob | Out-Null
+  $out | Set-Content .bob/custom_modes.yaml -Encoding UTF8
+  ```
+
+- **macOS / Linux (bash):**
+  ```bash
+  mkdir -p .bob && printf 'customModes:\n' > .bob/custom_modes.yaml && sed 's/^  //' SqlBob.yaml | sed 's/^/  /' >> .bob/custom_modes.yaml
+  ```
+
+After writing the file, confirm the mode is installed and tell me to switch to "SqlBob Database Mentor" in the Bob mode picker.</pre>
                         <button class="copy-btn">Copy</button>
                       </div>
                     </div>
