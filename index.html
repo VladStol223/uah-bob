@@ -580,20 +580,20 @@
 
   /* pulsing glow for any "next step" button */
   @keyframes next-step-pulse {
-    0%, 100% { box-shadow: 0 0 0 0px rgba(124,58,237,0.55); }
-    50%       { box-shadow: 0 0 0 7px rgba(124,58,237,0);   }
+    0%, 100% { box-shadow: 0 0 0 0px rgba(124,58,237,0.65); }
+    50%       { box-shadow: 0 0 0 14px rgba(124,58,237,0);  }
   }
   .step-download-btn.pulse-cta,
   .step-confirm-btn.pulse-cta {
-    animation: next-step-pulse 1.6s var(--ease-gentle) infinite;
+    animation: next-step-pulse 2.4s var(--ease-gentle) infinite;
   }
   /* copy button pulse uses its own colour */
   @keyframes copy-pulse {
-    0%, 100% { box-shadow: 0 0 0 0px rgba(124,58,237,0.5); }
-    50%       { box-shadow: 0 0 0 6px rgba(124,58,237,0);  }
+    0%, 100% { box-shadow: 0 0 0 0px rgba(124,58,237,0.6); }
+    50%       { box-shadow: 0 0 0 12px rgba(124,58,237,0); }
   }
   .copy-btn.pulse-cta {
-    animation: copy-pulse 1.6s var(--ease-gentle) infinite;
+    animation: copy-pulse 2.4s var(--ease-gentle) infinite;
   }
 
   /* confirm / "it's there" button */
@@ -1782,16 +1782,13 @@
         btn.textContent = 'Copy';
         btn.classList.remove('copied');
       }, 2000);
-      // If this copy-btn is inside a step-3 mode-step, reveal steps 4 & 5
+      // If this copy-btn is inside a step-3 mode-step, reveal step 4
       var parentStep = btn.closest('.mode-step');
       if (parentStep) {
         var stepNum = parseInt(parentStep.querySelector('.step-num').textContent.trim(), 10);
         if (stepNum === 3) {
           var stepsBlock = parentStep.closest('.mode-steps');
-          if (stepsBlock) {
-            revealStep(stepsBlock, 4);
-            revealStep(stepsBlock, 5);
-          }
+          if (stepsBlock) revealStep(stepsBlock, 4);
         }
       }
     }
