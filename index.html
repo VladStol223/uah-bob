@@ -578,6 +578,36 @@
     background: #1a7a4a; border-color: #1a7a4a;
   }
 
+  /* confirm / "it's there" button */
+  .step-confirm-btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: transparent; color: var(--ca);
+    font-size: 0.8rem; font-weight: 700;
+    padding: 8px 18px; border-radius: 8px;
+    border: 1.5px solid var(--ca); cursor: pointer; min-height: 36px;
+    margin-top: 12px;
+    transition: background 150ms var(--ease-out), color 150ms var(--ease-out), transform 120ms var(--ease-out);
+  }
+  .step-confirm-btn:hover  { background: var(--ca); color: white; }
+  .step-confirm-btn:active { transform: scale(0.96); }
+  .step-confirm-btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+  /* screenshot inside a step */
+  .step-screenshot {
+    margin-top: 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .step-screenshot img { display: block; width: 100%; height: auto; }
+  .step-screenshot-caption {
+    font-size: 0.72rem; color: var(--muted);
+    background: #1c2236; padding: 5px 10px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+
   /* Progressive step reveal */
   .mode-step.step-hidden {
     display: none;
@@ -997,6 +1027,22 @@
                   <div class="mode-step step-hidden">
                     <div class="step-num">2</div>
                     <div class="step-body">
+                      <div class="step-title">Confirm the file is in your workspace</div>
+                      <div class="step-desc">You should see <code>QisBob.yaml</code> appear in the Explorer panel on the left side of Bob, inside your open folder — just like this:</div>
+                      <div class="step-screenshot">
+                        <img src="Screenshot 2026-07-14 142350.png" alt="Bob Explorer panel showing QisBob.yaml in the workspace folder"/>
+                        <div class="step-screenshot-caption">QisBob.yaml visible in the Bob workspace Explorer</div>
+                      </div>
+                      <button class="step-confirm-btn" data-confirm-step="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                        It's there — continue
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="mode-step step-hidden">
+                    <div class="step-num">3</div>
+                    <div class="step-body">
                       <div class="step-title">Tell Bob to install the mode</div>
                       <div class="step-desc">Copy and paste this into Bob. It will read the file and add the mode to your <code>custom_modes.yaml</code>.</div>
                       <div class="step-prompt">
@@ -1007,7 +1053,7 @@
                   </div>
 
                   <div class="mode-step step-hidden">
-                    <div class="step-num">3</div>
+                    <div class="step-num">4</div>
                     <div class="step-body">
                       <div class="step-title">Switch to QisBob mode</div>
                       <div class="step-desc">Click the <strong>modes</strong> button at the bottom-left of the Bob chat input and select <strong>QisBob Quantum Mentor</strong>.</div>
@@ -1019,7 +1065,7 @@
                   </div>
 
                   <div class="mode-step step-hidden">
-                    <div class="step-num">4</div>
+                    <div class="step-num">5</div>
                     <div class="step-body">
                       <div class="step-title">Send the start prompt</div>
                       <div class="step-desc">Copy and send this to kick off your quantum learning session:</div>
@@ -1067,6 +1113,22 @@
                   <div class="mode-step step-hidden">
                     <div class="step-num">2</div>
                     <div class="step-body">
+                      <div class="step-title">Confirm the file is in your workspace</div>
+                      <div class="step-desc">You should see <code>PyBob.yaml</code> appear in the Explorer panel on the left side of Bob, inside your open folder — just like this:</div>
+                      <div class="step-screenshot">
+                        <img src="Screenshot 2026-07-14 143352.png" alt="Bob Explorer panel showing PyBob.yaml in the workspace folder"/>
+                        <div class="step-screenshot-caption">PyBob.yaml visible in the Bob workspace Explorer</div>
+                      </div>
+                      <button class="step-confirm-btn" data-confirm-step="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                        It's there — continue
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="mode-step step-hidden">
+                    <div class="step-num">3</div>
+                    <div class="step-body">
                       <div class="step-title">Tell Bob to install the mode</div>
                       <div class="step-desc">Copy and paste this into Bob. It will read the file and add the mode to your <code>custom_modes.yaml</code>.</div>
                       <div class="step-prompt">
@@ -1077,7 +1139,7 @@
                   </div>
 
                   <div class="mode-step step-hidden">
-                    <div class="step-num">3</div>
+                    <div class="step-num">4</div>
                     <div class="step-body">
                       <div class="step-title">Switch to PyBob mode</div>
                       <div class="step-desc">Click the <strong>modes</strong> button at the bottom-left of the Bob chat input and select <strong>PyBob Python Mentor</strong>.</div>
@@ -1089,7 +1151,7 @@
                   </div>
 
                   <div class="mode-step step-hidden">
-                    <div class="step-num">4</div>
+                    <div class="step-num">5</div>
                     <div class="step-body">
                       <div class="step-title">Send the start prompt</div>
                       <div class="step-desc">Copy and send this to kick off your Python learning session:</div>
@@ -1136,6 +1198,22 @@
                   <div class="mode-step step-hidden">
                     <div class="step-num">2</div>
                     <div class="step-body">
+                      <div class="step-title">Confirm the file is in your workspace</div>
+                      <div class="step-desc">You should see <code>SqlBob.yaml</code> appear in the Explorer panel on the left side of Bob, inside your open folder — just like this:</div>
+                      <div class="step-screenshot">
+                        <img src="Screenshot 2026-07-14 143419.png" alt="Bob Explorer panel showing SqlBob.yaml in the workspace folder"/>
+                        <div class="step-screenshot-caption">SqlBob.yaml visible in the Bob workspace Explorer</div>
+                      </div>
+                      <button class="step-confirm-btn" data-confirm-step="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                        It's there — continue
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="mode-step step-hidden">
+                    <div class="step-num">3</div>
+                    <div class="step-body">
                       <div class="step-title">Tell Bob to install the mode</div>
                       <div class="step-desc">Copy and paste this into Bob. It will read the file and add the mode to your <code>custom_modes.yaml</code>.</div>
                       <div class="step-prompt">
@@ -1146,7 +1224,7 @@
                   </div>
 
                   <div class="mode-step step-hidden">
-                    <div class="step-num">3</div>
+                    <div class="step-num">4</div>
                     <div class="step-body">
                       <div class="step-title">Switch to SqlBob mode</div>
                       <div class="step-desc">Click the <strong>modes</strong> button at the bottom-left of the Bob chat input and select <strong>SqlBob Database Mentor</strong>.</div>
@@ -1158,7 +1236,7 @@
                   </div>
 
                   <div class="mode-step step-hidden">
-                    <div class="step-num">4</div>
+                    <div class="step-num">5</div>
                     <div class="step-body">
                       <div class="step-title">Send the start prompt</div>
                       <div class="step-desc">Copy and send this to kick off your SQL learning session:</div>
@@ -1614,6 +1692,18 @@
       });
   });
 
+  // ── CONFIRM BUTTON ("It's there — continue") ───────────
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('[data-confirm-step]');
+    if (!btn) return;
+    btn.disabled = true;
+    btn.textContent = '\u2713 Confirmed';
+    btn.style.background = 'var(--ca)';
+    btn.style.color = 'white';
+    var stepsBlock = btn.closest('.mode-steps');
+    if (stepsBlock) revealStep(stepsBlock, 3);
+  });
+
   function revealStep(stepsBlock, stepNum) {
     var steps = stepsBlock.querySelectorAll('.mode-step');
     steps.forEach(function(s) {
@@ -1644,15 +1734,15 @@
         btn.textContent = 'Copy';
         btn.classList.remove('copied');
       }, 2000);
-      // If this copy-btn is inside a step-2 mode-step, reveal steps 3 & 4
+      // If this copy-btn is inside a step-3 mode-step, reveal steps 4 & 5
       var parentStep = btn.closest('.mode-step');
       if (parentStep) {
         var stepNum = parseInt(parentStep.querySelector('.step-num').textContent.trim(), 10);
-        if (stepNum === 2) {
+        if (stepNum === 3) {
           var stepsBlock = parentStep.closest('.mode-steps');
           if (stepsBlock) {
-            revealStep(stepsBlock, 3);
             revealStep(stepsBlock, 4);
+            revealStep(stepsBlock, 5);
           }
         }
       }
